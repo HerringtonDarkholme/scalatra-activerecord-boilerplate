@@ -1,0 +1,25 @@
+-@ var word: models.Word
+-@ var action: String
+-@ var buttonLabel: String
+-@ val locale: java.util.Locale
+
+- import helpers._
+- implicit val _locale = locale
+
+ul.breadcrumb
+  li
+    a(href='/') Home
+    span.divider /
+  li
+    a(href='/word') Word
+    span.divider /
+    li.active= if (word.isNewRecord) "New word" else "edit"
+h1 Word
+hr
+form.form-horizontal(method='post' action=action)
+  fieldset
+    - for (name <- Seq("name"))
+      = FormHelper.field(name, word)
+  .form-actions
+    button.btn.btn-primary(type='submit')= buttonLabel
+    a.btn(href='/word') Cancel

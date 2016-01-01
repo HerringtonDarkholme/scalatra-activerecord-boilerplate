@@ -1,0 +1,21 @@
+-@ val words: List[models.Word]
+ul.breadcrumb
+  li
+    a(href='/') Home
+    span.divider /
+  li.active Word
+h1 Words
+hr
+table.table.table-striped
+  thead
+    tr
+      th Name
+  tbody
+    - for (w <- words)
+      tr
+        td= w.name
+        td
+          a.btn.btn-mini(href='/word/#{w.id}/edit') Edit
+          a.btn.btn-mini.btn-danger(href='#' data-redirect='/word' data-target='/word/#{w.id}') Destroy
+.form-actions
+  a.btn.btn-primary(href='/word/new') Create

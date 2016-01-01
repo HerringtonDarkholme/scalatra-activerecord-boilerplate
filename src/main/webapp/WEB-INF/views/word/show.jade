@@ -1,0 +1,19 @@
+-@ val word: models.Word
+ul.breadcrumb
+  li
+    a(href='/') Home
+    span.divider /
+  li
+    a(href='/word') User
+    span.divider /
+h1 Word
+hr
+.span8
+  p
+    b Name
+    br
+    pre= word.name
+.form-actions
+  a.btn(href='/word') Back
+  a.btn(href='/word/#{word.id}/edit') Edit
+a.btn.btn-danger(href='#' data-redirect='/word' data-target='/word/#{word.id}') Delete
